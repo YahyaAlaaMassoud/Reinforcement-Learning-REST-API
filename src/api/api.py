@@ -10,6 +10,7 @@ api_bp = Blueprint('api', __name__)
 api = Api(api_bp)
 
 class StateUpdater(Resource):
+
     def update_model(self, time_stamp, current_state, reward):
         model.add_memory(time_stamp, current_state)
         if time_stamp > 0:
@@ -23,8 +24,8 @@ class StateUpdater(Resource):
         self.update_model(time_stamp, current_state, reward)
         return 201
 
-api.add_resource(StateUpdater, '/update-state')
 class DirectionQuery(Resource):
+
     def extractArgs(self):
         args = request.args
         return int(args['time_stamp'])
@@ -34,4 +35,5 @@ class DirectionQuery(Resource):
         action = model.get_action(time_stamp)
         return {'action': action}
 
+api.add_resource(StateUpdater, '/update-state')
 api.add_resource(DirectionQuery, '/query-direction')
