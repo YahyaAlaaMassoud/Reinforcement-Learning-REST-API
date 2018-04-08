@@ -1,7 +1,9 @@
 from flask import Blueprint
 from flask_restful import reqparse, abort, Api, Resource, request
+
 import sys
 sys.path.append('../')
+
 from ai_models.rl_model import model
 
 api_bp = Blueprint('api', __name__)
@@ -11,7 +13,7 @@ class StateUpdater(Resource):
     def update_model(self, time_stamp, current_state, reward):
         model.add_memory(time_stamp, current_state)
         if time_stamp > 0:
-            model.update_memory(time_stamp - 1, reward=reward)
+            model.update_previous_memory(time_stamp - 1, reward=reward, next_state=current_state)
 
     def extractBodyFields(self):
         return int(request.form['reward']), int(request.form['time_stamp']), request.form['current_state']
@@ -25,7 +27,7 @@ api.add_resource(StateUpdater, '/update-state')
 class DirectionQuery(Resource):
     def extractArgs(self):
         args = request.args
-        return args['time_stamp']
+        return int(args['time_stamp'])
 
     def get(self):
         time_stamp = self.extractArgs()
