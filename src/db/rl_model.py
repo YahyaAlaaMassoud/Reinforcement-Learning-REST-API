@@ -26,7 +26,7 @@ def print_replay_memory():
            print mem
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
     #insert_transition(134, 10101, 'R')
     #update_transition(134, 13445, 134)
     #print query_action(134)
