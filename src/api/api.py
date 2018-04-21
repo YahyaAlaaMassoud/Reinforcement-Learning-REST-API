@@ -13,6 +13,9 @@ class test(Resource):
     def get(self):
         return 'hello, world'
 
+api.add_resource(test, '/')
+
+
 
 
 class StateUpdater(Resource):
