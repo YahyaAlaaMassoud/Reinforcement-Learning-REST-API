@@ -1,16 +1,18 @@
 # import sys
 # sys.path.append('../')
 
-import db.rl_model as replay_memory
+import src.db.rl_model as replay_memory
 
 class Model:
 
     def get_action(self, time_stamp):
-        return replay_memory.query_action(time_stamp)
+        #print 'R'
+        return 'R'
+        #return replay_memory.query_action(time_stamp)
 
     def add_memory(self, time_stamp, current_state):
         action = self.create_action(time_stamp, current_state)
-        print action 
+        print action
         replay_memory.insert_transition(time_stamp, current_state, action)
 
     def create_action (self, time_stamp, current_state):

@@ -4,10 +4,16 @@ from flask_restful import reqparse, abort, Api, Resource, request
 import sys
 sys.path.append('../')
 
-from ai_models.rl_model import model
+from src.ai_models.rl_model import model
 
 api_bp = Blueprint('api', __name__)
 api = Api(api_bp)
+
+class test(Resource):
+    def get(self):
+        return 'hello, world'
+
+
 
 class StateUpdater(Resource):
 
