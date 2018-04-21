@@ -12,7 +12,7 @@ class Model:
 
     def add_memory(self, time_stamp, current_state):
         action = self.create_action(time_stamp, current_state)
-        print action
+        print (action)
         replay_memory.insert_transition(time_stamp, current_state, action)
 
     def create_action (self, time_stamp, current_state):

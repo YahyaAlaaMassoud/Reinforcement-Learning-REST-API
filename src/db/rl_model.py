@@ -26,7 +26,7 @@ def clear_replay_memory():
 
 def print_replay_memory():
     for mem in replay_memory.find():
-           print mem
+           print (mem)
 
 
 #if __name__ == '__main__':
