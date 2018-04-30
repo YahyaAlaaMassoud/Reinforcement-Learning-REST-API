@@ -1,9 +1,13 @@
 from flask import Flask
 
 import sys
-sys.path.append('../')
+sys.path.append('./src/')
+sys.path.append('./src/api/')
+sys.path.append('./src/db/')
+sys.path.append('./src/ai_models/')
+sys.path.append('./src/api/resources/')
 
-from src.api.api import api_bp
+from api.api import api_bp
 
 def create_app(config_filename):
     app = Flask(__name__)
