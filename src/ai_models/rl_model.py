@@ -28,25 +28,28 @@ class Model:
         time_stamp = rl_config.get_learning_param('time_stamp')
         rand_steps = rl_config.get_learning_param('rand_steps')
         
-        if np.random.rand() < epsilon or time_stamp < rand_steps:
+        if (np.random.rand() < epsilon) or (time_stamp < rand_steps):
             action = [np.random.randint(0, action_space)]
             print('took random action')
         else:
             action = self.model.get_prediction(np.array(current_state))
             print('took a wise action')
-            
+        print(epsilon)
         return action
     
     def check_model_update(self):
         time_stamp = rl_config.get_learning_param('time_stamp')
         update_freq = rl_config.get_learning_param('update_freq')
-        if time_stamp % update_freq == 0 and time_stamp > 0:
+        rand_steps = rl_config.get_learning_param('rand_steps')
+        
+        if time_stamp % update_freq == 0 and time_stamp > rand_steps:
             epsilon = rl_config.get_learning_param('epsilon')
             epsilon_decay = rl_config.get_learning_param('epsilon_decay')
             epsilon_min = rl_config.get_learning_param('epsilon_min')
             batch_size = rl_config.get_learning_param('batch_size')
             learning_rate = rl_config.get_learning_param('learning_rate')
-            
+
+            print('update model')            
             data = replay_memory.sample_experiences(batch_size)
             self.model.update_model(data, learning_rate)
             

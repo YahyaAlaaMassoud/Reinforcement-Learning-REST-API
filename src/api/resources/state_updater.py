@@ -23,4 +23,4 @@ class StateUpdater(Resource):
         reward, current_state, terminate = self.extractBodyFields()
         time_stamp = rl_config.get_learning_param('time_stamp')
         action = self.update_model(time_stamp, current_state, reward, terminate)
-        return {'time_stamp': time_stamp, 'action': action}
+        return jsonify({'time_stamp': time_stamp, 'action': action})
