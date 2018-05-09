@@ -14,7 +14,7 @@ def init_params(input_shape, output_units, learning_rate = 0.99, epsilon_min = 0
     rl_config.insert({
                       'input_shape': json.dumps(input_shape),
                       'output_units': json.dumps(output_units),
-                      'learning_rate': json.dumps(learning_rate), 
+                      'learning_rate': json.dumps(learning_rate),
                       'epsilon_min': json.dumps(epsilon_min), 
                       'epsilon': json.dumps(epsilon), 
                       'epsilon_decay': json.dumps(epsilon_decay), 

@@ -33,7 +33,7 @@ class DQN():
         
         self.input = tf.reshape(self.input_layer, self.input_shape)
 
-        self.dense1 = tf.layers.dense(inputs = self.input, units = 20, activation = tf.nn.relu)
+        self.dense1 = tf.layers.dense(inputs = self.input, units = 200, activation = tf.nn.relu)
         
         self.dense2 = tf.layers.dense(inputs = self.dense1, units = 10, activation = tf.nn.relu)
 

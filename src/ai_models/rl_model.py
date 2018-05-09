@@ -8,6 +8,7 @@ class Model:
     
     if rl_config.check_data() is True:
         model = DQN(rl_config.get_learning_param('input_shape'), rl_config.get_learning_param('output_units'))
+        print('model init')
     
     def get_action(self, time_stamp):
         return replay_memory.query_action(time_stamp)

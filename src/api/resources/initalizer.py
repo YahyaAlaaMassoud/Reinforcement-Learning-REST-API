@@ -6,8 +6,8 @@ import db.rl_config as rl_config
 
 class Initalizer(Resource):
     
-    def post(self, learning_rate = 0.99, epsilon_min = 0.01, epsilon = 1.0, epsilon_decay = 0.99991,\
-                   rand_steps = 10000 , update_freq = 4, max_ep_len = 200, batch_size = 32):
+    def post(self, learning_rate = 0.99, epsilon_min = 0.01, epsilon = 1.0, epsilon_decay = 0.99861,\
+                   rand_steps = 70 , update_freq = 4, max_ep_len = 200, batch_size = 64):
         input_shape   = json.loads(request.form['input_shape'])
         output_units  = json.loads(request.form['output_units'])
         learning_rate = json.loads(request.form.get('learning_rate') or str(learning_rate))
