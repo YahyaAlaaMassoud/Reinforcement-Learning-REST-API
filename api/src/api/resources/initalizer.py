@@ -31,7 +31,7 @@ class Initalizer(Resource):
                                       batch_size = batch_size
                                    )
         return jsonify(success = res)
-        
+
     def put(self):
         param_names = list(request.form)
         res = []
