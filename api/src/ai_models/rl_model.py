@@ -5,7 +5,7 @@ import numpy as np
 from ai_models.q_network import DQN
 
 class Model:
-    
+#    model = DQN(rl_config.get_learning_param('input_shape'), rl_config.get_learning_param('output_units'))
     if rl_config.check_data() is True:
         model = DQN(rl_config.get_learning_param('input_shape'), rl_config.get_learning_param('output_units'))
         print('model init')
